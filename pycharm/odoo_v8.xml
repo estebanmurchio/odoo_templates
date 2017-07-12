@@ -1,0 +1,394 @@
+<templateSet group="odoo_v8">
+  <template name="odoo_openerp_help" value="{&#10;    'name': '$name$',&#10;    'version': '1.0',&#10;    'category': '$category$',&#10;    'summary': '$summary$',&#10;    'author': 'OPENPYME S.R.L',&#10;    'website': 'openpyme.com.ar',&#10;    'depends': [&#10;        '$depends$',&#10;    ],&#10;    'data': [&#10;        # 'data/...xml',&#10;        # 'security/ir.model.access.csv',&#10;        # 'views/...xml',&#10;        # 'wizard/views/...xml',&#10;    ],&#10;    'installable': True,&#10;    'auto_install': False,&#10;    'application': True,&#10;    'description': &quot;&quot;&quot;&#10;$name$&#10;======================================&#10;* $END$&#10;&quot;&quot;&quot;,&#10;}" description="Odoo: openerp file with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="category" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="summary" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="depends" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="odoo_init_help" value="#import models&#10;#import wizard&#10;#import helpers&#10;$END$" description="Odoo: init file with help" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="recordset_filtered_lambda_help" value="# only keep records whose company is the current user's&#10;# records.filtered(lambda r: r.company_id == user.company_id)&#10;$records$.filtered(lambda r: r.$field_and_expression$)&#10;$END$" description="Recordset: 'filtered' lambda with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field_and_expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_filtered_help" value="# only keep records whose partner is a company&#10;# records.filtered(&quot;partner_id.is_company&quot;)&#10;$records$.filtered($expression$)&#10;$END$" description="Recordset: 'filtered' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sorted_lambda_help" value="# sort records by name&#10;# records.sorted(key=lambda r: r.name)&#10;$records$.sorted(key=$lambda$)&#10;$END$" description="Recordset: 'sorted' lambda with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="lambda" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sorted_lambda_reverse_help" value="# records.sorted(key=lambda r: r.name, reverse=True)&#10;$records$.sorted(key=$key$, reverse=True)&#10;$END$" description="Recordset: reverse 'sorted' lambda with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="key" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_mapped_lambda_help" value="# returns a list of summing two fields for each record in the set&#10;# records.mapped(lambda r: r.field1 + r.field2)&#10;$records$.mapped(lambda r: $expression$)&#10;$END$" description="Recordset: 'mapped' lambda with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_mapped_help" value="# returns a list of names&#10;# records.mapped('name')&#10;# returns a recordset of partners&#10;# record.mapped('partner_id')&#10;# returns the union of all partner banks, with duplicates removed&#10;# record.mapped('partner_id.bank_ids')&#10;$records$.mapped('$field$')&#10;$END$" description="Recordset: 'mapped' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_proxy_help" value="# self.env['res.partner']&#10;$model$_proxy = self.env['$odoo_model$']&#10;$END$" description="Recordset: proxy with help" toReformat="false" toShortenFQNames="true">
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="odoo_model" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sudo_help" value="# create partner object as administrator&#10;# env['res.partner'].sudo().create({'name': &quot;A Partner&quot;})&#10;# list partners visible by the &quot;public&quot; user&#10;# public = env.ref('base.public_user')&#10;# env['res.partner'].sudo(public).search([])&#10;$recordset$.sudo($user$)$END$" description="Recordset: 'sudo' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_ref_help" value="# Environment method returning the record matching a provided external id:&#10;# env.ref('base.group_public')&#10;$object$ = $recordset$.ref('$external_id$')&#10;$END$" description="Recordset: 'ref' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="object" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="external_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_ensure_one_help" value="# checks that the recordset is a singleton (only contains a single record),&#10;# raises an error otherwise:&#10;# records.ensure_one()&#10;$recordset$.ensure_one()&#10;$END$" description="Recordset: 'ensure_one' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_char_help" value="# depends IS required if computing field's value&#10;@api.depends('$depends$')&#10;$name$ = fields.Char(&#10;    # Optional label of the field&#10;    string=&quot;$string$&quot;,&#10;&#10;    # the maximum size of values stored for that field&#10;    size=999,&#10;&#10;    # Help tooltip text&#10;    help='$tooltip$',&#10;&#10;    # Mandatory field&#10;    required=True,&#10;&#10;    # tracks visibility ('onchange' or 'always')&#10;    track_visibility='onchange',&#10;&#10;    # Field will be readonly in views&#10;    readonly=True,&#10;&#10;    # By default, the values of related fields are not stored to the database.&#10;    # Add the attribute store=True to make it stored, just like computed fields.&#10;    # Related fields are automatically recomputed when their dependencies are&#10;    # modified.&#10;    related=&quot;$related$&quot;,&#10;&#10;    # comma-separated list of group xml ids (string);&#10;    # this restricts the field access to the users of the given groups only&#10;    groups=&quot;$groups$&quot;,&#10;&#10;    # whether the field value should be copied when the record is duplicated&#10;    # (default: True for normal fields, False for one2many and computed fields,&#10;    # including property fields and related fields)&#10;    copy=False,&#10;&#10;    # Force index on field&#10;    select=True,&#10;&#10;    # whether the field is indexed in database (boolean, by default False)&#10;    index=True,&#10;&#10;    # Translation enable&#10;    translate=True,&#10;&#10;    # Transform columns to ir.property&#10;    company_dependent=True,&#10;&#10;    # FOLLOWING ATTRIBUTES ARE ONLY FOR COMPUTED FIELDS!!!&#10;&#10;    # Transform the fields in computed fields&#10;    compute=&quot;_$compute_function_name$&quot;,&#10;&#10;    # whether the field should be recomputed as superuser to bypass &#10;    # access rights (boolean, by default False)&#10;    compute_sudo=False,&#10;&#10;    # Custom search function mainly used with compute&#10;    search='_$search_funcion_name$',&#10;&#10;    # On update trigger&#10;    inverse=&quot;_$write_function_name$&quot;,&#10;&#10;    # If computed it will store the result&#10;    store=True,&#10;)&#10;&#10;$END$" description="Models: Char field with all properties and help" toReformat="false" toShortenFQNames="true">
+    <variable name="depends" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tooltip" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="related" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="groups" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="compute_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="search_funcion_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="write_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_fields_computed_help" value="$name$ = fields.$type$(&#10;    string=&quot;$string$&quot;,&#10;    compute=&quot;_$compute_function_name$&quot;,&#10;    search='_$search_funcion_name$'&#10;    inverse=&quot;_$write_function_name$&quot;,&#10;)&#10;&#10;def _$compute_function_name$(self):&#10;    &quot;&quot;&quot;&#10;    The compute method has to assign the field on all records of the invoked&#10;    recordset. The decorator openerp.api.depends() must be applied on the&#10;    compute method to specify the field dependencies; those dependencies&#10;    are used to determine when to recompute the field;&#10;    recomputation is automatic and guarantees cache/database consistency.&#10;    Note that the same method can be used for several fields,&#10;    you simply have to assign all the given fields in the method; &#10;    the method will be invoked once for all those fields.&#10;    &quot;&quot;&quot;&#10;    $END$&#10;&#10;def _$search_funcion_name$(self):&#10;    &quot;&quot;&quot;&#10;    The search method is invoked when processing domains before doing an actual&#10;    search on the model. It must return a domain equivalent to the condition:&#10;    field operator value.&#10;    &quot;&quot;&quot;&#10;    pass&#10;&#10;def _$write_function_name$(self):&#10;    &quot;&quot;&quot;&#10;    The inverse method, as its name says, does the inverse of the compute&#10;    method: the invoked records have a value for the field, and you must apply&#10;    the necessary changes on the field dependencies such that the computation&#10;    gives the expected value. Note that a computed field without an inverse&#10;    method is readonly by default.&#10;    &quot;&quot;&quot;&#10;    pass&#10;" description="Models: Generic 'compute', 'search' and 'inverse' with methods and help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="compute_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="search_funcion_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="write_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="odoo_python_file" value="# coding: utf-8&#10;##############################################################################&#10;#    This program is free software: you can redistribute it and/or modify&#10;#    it under the terms of the GNU Affero General Public License as&#10;#    published by the Free Software Foundation, either version 3 of the&#10;#    License, or (at your option) any later version.&#10;#    This program is distributed in the hope that it will be useful,&#10;#    but WITHOUT ANY WARRANTY; without even the implied warranty of&#10;#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10;#    GNU Affero General Public License for more details.&#10;#    You should have received a copy of the GNU Affero General Public License&#10;#    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10;##############################################################################&#10;$END$&#10;# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:&#10;" description="Odoo: python file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="models_field_boolean" value="$name$ = fields.Boolean(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Boolean field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_integer" value="$name$ = fields.Integer(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Integer field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_float_help" value="$name$ = fields.Float(&#10;    string='$string$',&#10;&#10;    # a pair (total, decimal), or a function taking a database cursor and &#10;    # returning a pair (total, decimal)&#10;    digits=($total$,$decimal$),&#10;&#10;    # NOTE: either compute or digits_compute can be specified&#10;&#10;    digits_compute=dp.get_precision('$precision$'),&#10;&#10;    compute='_$compute_function$'),  # todo: def _$compute_function$!&#10;)&#10;&#10;$END$" description="Models: Float field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="total" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="decimal" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="precision" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="compute_function" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_text" value="$name$ = fields.Text(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Text field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_selection_help" value="$name$ = fields.Selection(&#10;    string=&quot;$string$&quot;,&#10;    selection=[&#10;        (&quot;$selection_key$&quot;, &quot;$selection_value$&quot;),&#10;    ],&#10;&#10;    # provides an extension of the selection in the case of an overridden field.&#10;    # It is a list of pairs (value, string)&#10;    selection_add=[&#10;        (&quot;$add_key$&quot;, &quot;$add_value$&quot;),&#10;)&#10;&#10;$END$" description="Models: Selection field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="selection_key" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="selection_value" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="add_key" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="add_value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_html_help" value="$name$ = fields.Html(&#10;    string=&quot;$string$&quot;,&#10;&#10;    # sanitize html input (boolean)&#10;    sanitize=True,&#10;&#10;    # strip styling (boolean)&#10;    strip_style=True,&#10;)&#10;&#10;$END$" description="Models: Html field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_html" value="$name$ = fields.Html(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Html field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="odoo_openerp" value="{&#10;    'name': '$name$',&#10;    'version': '1.0',&#10;    'category': '',&#10;    'summary': '$name$',&#10;    'author': 'OPENPYME S.R.L',&#10;    'website': 'openpyme.com.ar',&#10;    'depends': [&#10;    ],&#10;    'data': [&#10;    ],&#10;    'installable': True,&#10;    'auto_install': False,&#10;    'application': True,&#10;    'description': &quot;&quot;&quot;&#10;$name$&#10;======================================&#10;* $END$&#10;&quot;&quot;&quot;,&#10;}" description="Odoo: openerp file" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="recordset_with_context" value="$recordset$.with_context($key$=$value$)$END$" description="Recordset: 'with_context'" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="key" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sudo" value="$recordset$.sudo($user$)$END$" description="Recordset: 'sudo'" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sorted_lambda_reverse" value="$records$.sorted(key=$key$, reverse=True)&#10;$END$" description="Recordset: reverse 'sorted' lambda" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="key" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_sorted_lambda" value="$records$.sorted(key=$lambda$)&#10;$END$" description="Recordset: 'sorted' lambda" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="lambda" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_ref" value="$object$ = $recordset$.ref('$external_id$')&#10;$END$" description="Recordset: 'ref'" toReformat="false" toShortenFQNames="true">
+    <variable name="object" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="external_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_proxy" value="$model$_proxy = self.env['$odoo_model$']&#10;$END$" description="Recordset: proxy" toReformat="false" toShortenFQNames="true">
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="odoo_model" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_mapped_lambda" value="$records$.mapped(lambda r: $expression$)&#10;$END$" description="Recordset: 'mapped' lambda" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_mapped" value="$records$.mapped('$field$')&#10;$END$" description="Recordset: 'mapped' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_filtered_lambda" value="$records$.filtered(lambda r: r.$field_and_expression$)&#10;$END$" description="Recordset: 'filtered' lambda" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field_and_expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_filtered" value="$records$.filtered($expression$)&#10;$END$" description="Recordset: 'filtered'" toReformat="false" toShortenFQNames="true">
+    <variable name="records" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="expression" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_ensure_one" value="$recordset$.ensure_one()&#10;$END$" description="Recordset: 'ensure_one'" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_fields_computed" value="$name$ = fields.$type$(&#10;    string=&quot;$string$&quot;,&#10;    compute=&quot;_$compute_function_name$&quot;,&#10;    search='_$search_funcion_name$'&#10;    inverse=&quot;_$write_function_name$&quot;,&#10;)&#10;&#10;def _$compute_function_name$(self):&#10;    $END$&#10;&#10;def _$search_funcion_name$(self):&#10;    pass&#10;&#10;def _$write_function_name$(self):&#10;    pass&#10;" description="Models: Generic 'compute', 'search' and 'inverse' with methods" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="compute_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="search_funcion_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="write_function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_selection" value="$name$ = fields.Selection(&#10;    string=&quot;$string$&quot;,&#10;    selection=[&#10;        $END$,&#10;    ],&#10;)&#10;&#10;$END$" description="Models: Selection field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_float" value="$name$ = fields.Float(&#10;    string='$string$',&#10;)&#10;&#10;$END$" description="Models: Float field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_date" value="$name$ = fields.Date(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Date field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_datetime" value="$name$ = fields.Datetime(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Datetime field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_many2one_help" value="$name$ = fields.Many2one(&#10;    string=&quot;$string$&quot;,&#10;&#10;    # name of the target model (string)&#10;    comodel_name=&quot;$comodel_name$&quot;,&#10;&#10;    # an optional domain to set on candidate values on the client side&#10;    # (domain or string)&#10;    domain=&quot;$domain$&quot;,&#10;&#10;    # an optional context to use on the client side when handling that field&#10;    # (dictionary)&#10;    context=&quot;$context$&quot;,&#10;&#10;    # what to do when the referred record is deleted; possible values are:&#10;    # 'set null', 'restrict', 'cascade'&#10;    ondelete=&quot;$ondelete$&quot;,&#10;&#10;    # whether JOINs are generated upon search through that field&#10;    # (boolean, by default False)&#10;    auto_join=&quot;$auto_join$,&#10;&#10;    # set it to True to make fields of the target model accessible from&#10;    # the current model (corresponds to _inherits)&#10;    delegate=&quot;$delegate$&quot;,&#10;)&#10;&#10;$END$" description="Models: Many2one field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="domain" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="context" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ondelete" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="auto_join" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="delegate" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_many2one" value="$name$ = fields.Many2one(&#10;    string=&quot;$string$&quot;,&#10;    comodel_name=&quot;$model_name$&quot;,&#10;)&#10;&#10;$END$" description="Models: Many2one field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_one2many_help" value="$name$ = fields.One2many(&#10;    string=&quot;$string$&quot;,&#10;&#10;    # name of the target model (string)&#10;    comodel_name=&quot;$comodel_name$&quot;,&#10;&#10;    # name of the inverse Many2one field in comodel_name (string)&#10;    inverse_name=&quot;$inverse_id$&quot;,&#10;&#10;    # an optional domain to set on candidate values on the client side&#10;    # (domain or string)&#10;    domain=&quot;$domain$&quot;,&#10;&#10;    # an optional context to use on the client side when handling that field&#10;    # (dictionary)&#10;    context=&quot;$context$&quot;,&#10;&#10;    # whether JOINs are generated upon search through that field&#10;    # (boolean, by default False)&#10;    auto_join=$auto_join$,&#10;&#10;    # optional limit to use upon read (integer)&#10;    limit=$limit$,&#10;)&#10;&#10;$END$" description="Models: One2many field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="inverse_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="domain" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="context" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="auto_join" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="limit" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_one2many" value="$name$ = fields.One2many(&#10;    string=&quot;$string$&quot;,&#10;    comodel_name=&quot;$comodel_name$&quot;,&#10;    inverse_name=&quot;$inverse_id$&quot;,&#10;)&#10;&#10;$END$" description="Models: One2many field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="inverse_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_many2many_help" value="$name$ = fields.Many2many(&#10;    string=&quot;$string$&quot;,&#10;&#10;    # name of the target model (string)&#10;    comodel_name=&quot;$comodel_name$&quot;,&#10;&#10;    # optional name of the table that stores the relation in the database&#10;    # (string)&#10;    relation=&quot;$relation$&quot;,&#10;&#10;    # optional name of the column referring to &quot;these&quot; records in the&#10;    # table relation (string)&#10;    column1=&quot;$column1$&quot;,&#10;&#10;    # optional name of the column referring to &quot;those&quot; records in the&#10;    # table relation (string)&#10;    column2=&quot;$column2$&quot;,&#10;&#10;    # NOTE: The attributes relation, column1 and column2 are optional.&#10;    # If not given, names are automatically generated from model names,&#10;    # provided model_name and comodel_name are different!&#10;&#10;    # an optional domain to set on candidate values on the client side&#10;    # (domain or string)&#10;    domain=&quot;$domain$&quot;,&#10;&#10;    # an optional context to use on the client side when handling that field&#10;    # (dictionary)&#10;    context=&quot;$context$&quot;,&#10;&#10;    # optional limit to use upon read (integer)&#10;    limit=$limit$,&#10;&#10;)&#10;&#10;$END$" description="Models: Many2many field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="relation" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="column1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="column2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="domain" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="context" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="limit" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_many2many" value="$name$ = fields.Many2many(&#10;    string=&quot;$string$&quot;,&#10;    comodel_name=&quot;$comodel_name$&quot;,&#10;)&#10;&#10;$END$" description="Models: Many2many field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_binary_help" value="$filename_field$ = fields.Char(string=&quot;$name$&quot;)&#10;&#10;$name$ = fields.Binary(&#10;    string=&quot;$string$&quot;,&#10;&#10;    # a char field to store the file name&#10;    filename=&quot;$filename_field$&quot;,&#10;&#10;    # only allow to select these file types (by extension)&#10;    filters=&quot;*.csv,*.CSV&quot;,&#10;)&#10;&#10;$END$" description="Models: Binary field with help" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="filename_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="recordset_with_context_help" value="# look for partner, or create one with specified timezone if none is found&#10;# env['res.partner'].with_context(tz=a_tz).find_or_create(email_address)&#10;$recordset$.with_context($key$=$value$)$END$" description="Recordset: 'with_context' with help" toReformat="false" toShortenFQNames="true">
+    <variable name="recordset" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="key" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="models_field_binary" value="$name$ = fields.Binary(&#10;    string=&quot;$string$&quot;,&#10;)&#10;&#10;$END$" description="Models: Binary field" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="odoo_xml_file" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;!--&#10;    This program is free software: you can redistribute it and/or modify&#10;    it under the terms of the GNU Affero General Public License as published&#10;    by the Free Software Foundation, either version 3 of the License, or&#10;    (at your option) any later version.&#10;    This program is distributed in the hope that it will be useful,&#10;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#10;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10;    GNU Affero General Public License for more details.&#10;    You should have received a copy of the GNU Affero General Public License&#10;    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10;--&gt;&#10;$END$&#10;&lt;!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4--&gt;&#10;" description="Odoo: xml file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+      <option name="XSL_TEXT" value="false" />
+    </context>
+  </template>
+</templateSet>
